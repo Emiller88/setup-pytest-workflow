@@ -1,0 +1,17 @@
+name: "Setup pytest-workflow"
+description: "Sets up pytest-workflow with your desired version"
+inputs:
+  python-version: # id of input
+    description: "Version of python"
+    required: true
+    default: "World"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.x"
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip pytest-workflow
+      shell: bash
